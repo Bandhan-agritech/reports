@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Report Search</title>
+
+<link rel="stylesheet" href="search.css">
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>📊 Daily Work Report</h1>
+        <p>Search Employee Reports</p>
+    </div>
+
+    <div class="search-card">
+
+        <div class="input-group">
+            <label>Select Date</label>
+            <input type="date" id="searchDate">
+        </div>
+
+        <div class="input-group">
+            <label>Select Employee</label>
+            <select id="searchEmployee">
+                <option value="">Choose Employee</option>
+                <option value="Madhav">Madhav</option>
+                <option value="Rahul">Rahul</option>
+                <option value="Amit">Amit</option>
+            </select>
+        </div>
+
+        <button onclick="searchReport()">
+            🔍 Search Report
+        </button>
+
+    </div>
+
+    <div id="resultCard" class="result-card">
+
+        <h2>Employee Report</h2>
+
+        <div class="info-row">
+            <span>Date :</span>
+            <span id="showDate">-</span>
+        </div>
+
+        <div class="info-row">
+            <span>Employee :</span>
+            <span id="showEmp">-</span>
+        </div>
+
+        <div class="report-box" id="showReport">
+            Search a report to view details.
+        </div>
+
+    </div>
+
+</div>
+
+<script src="search.js"></script>
+
+</body>
+</html>
