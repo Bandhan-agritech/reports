@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Work Report System</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>📋 Daily Work Report System</h1>
+        <p>Employee Daily Activity Tracking Portal</p>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="stats">
+
+        <div class="stat-box">
+            <h3 id="totalEmployees">3</h3>
+            <p>Total Employees</p>
+        </div>
+
+        <div class="stat-box">
+            <h3 id="totalReports">0</h3>
+            <p>Total Reports</p>
+        </div>
+
+        <div class="stat-box">
+            <h3 id="todayReports">0</h3>
+            <p>Today's Reports</p>
+        </div>
+
+    </div>
+
+    <div class="grid">
+
+        <!-- Add Report -->
+        <div class="card">
+
+            <h2>➕ Add Work Report</h2>
+
+            <div class="form-group">
+                <label>Date</label>
+                <input type="date" id="reportDate">
+            </div>
+
+            <div class="form-group">
+                <label>Employee Name</label>
+                <select id="employee">
+                    <option value="">Select Employee</option>
+                    <option>Madhav</option>
+                    <option>Rahul</option>
+                    <option>Amit</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Work Report</label>
+                <textarea
+                    id="workReport"
+                    placeholder="Enter today's work details..."
+                ></textarea>
+            </div>
+
+            <button class="btn" id="saveBtn">
+                Save Report
+            </button>
+
+        </div>
+
+        <!-- Search -->
+        <div class="card">
+
+            <h2>🔍 Search Report</h2>
+
+            <div class="search-row">
+
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" id="searchDate">
+                </div>
+
+                <div class="form-group">
+                    <label>Employee</label>
+                    <select id="searchEmployee">
+                        <option value="">Select Employee</option>
+                        <option>Madhav</option>
+                        <option>Rahul</option>
+                        <option>Amit</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="action-row">
+
+                <button class="btn search-btn" id="searchBtn">
+                    Search Report
+                </button>
+
+                <button class="btn excel-btn" id="excelBtn">
+                    Export Excel
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Report Results -->
+
+    <div class="card report-section">
+
+        <div class="report-header">
+
+            <h2>📄 Reports</h2>
+
+            <button class="btn load-btn" id="loadAllBtn">
+                Load All Reports
+            </button>
+
+        </div>
+
+        <div id="reportArea">
+
+            <div class="empty-state">
+                Select Date & Employee and click Search
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Edit Modal -->
+
+<div class="modal" id="editModal">
+
+    <div class="modal-content">
+
+        <h2>Edit Report</h2>
+
+        <input type="hidden" id="editId">
+
+        <div class="form-group">
+            <label>Date</label>
+            <input type="date" id="editDate">
+        </div>
+
+        <div class="form-group">
+            <label>Employee</label>
+            <select id="editEmployee">
+                <option>Madhav</option>
+                <option>Rahul</option>
+                <option>Amit</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Report</label>
+            <textarea id="editReport"></textarea>
+        </div>
+
+        <div class="modal-buttons">
+
+            <button class="btn save-edit" id="updateBtn">
+                Update
+            </button>
+
+            <button class="btn cancel-btn" id="closeModal">
+                Cancel
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
